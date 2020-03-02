@@ -18,8 +18,9 @@ export default {
     LoginView
   },
 
-  data: () => ({
-    //
-  })
+  data: () => ({}),
+  created() {
+    this.$AuthService.reflesh();
+  }
 };
 </script>

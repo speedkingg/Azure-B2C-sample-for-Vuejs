@@ -2,6 +2,7 @@
   <div>
     <v-btn @click="login" v-if="!user">
       <v-icon small left>mdi-windows</v-icon>login
+      <v-icon small right>mdi-checkbox-multiple-blank-outline</v-icon>
     </v-btn>
     <v-btn @click="logout" v-else>logout</v-btn>
   </div>
@@ -11,12 +12,12 @@
 import store from "@/store/index.js";
 
 export default {
-  name: "LoginButtonPopup",
+  name: "LoginButton",
 
   data: () => ({ errorMessage: "" }),
   methods: {
     login() {
-      this.$AuthService.login();
+      this.$AuthService.loginPopup();
     },
     logout() {
       this.$AuthService.logout();

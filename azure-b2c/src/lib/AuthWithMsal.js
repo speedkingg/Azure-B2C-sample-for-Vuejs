@@ -19,7 +19,7 @@ export default class AuthService {
     this.app = new Msal.UserAgentApplication(this.msalConfig);
   }
 
-  login() {
+  loginPopup() {
     this.app
       .loginPopup()
       .then(result => {
@@ -31,11 +31,33 @@ export default class AuthService {
       });
   }
 
+  loginRedirect() {
+    this.app.handleRedirectCallback((error, result) => {
+      if (error) {
+        console.log("login error", error);
+      } else {
+        console.log("success", result);
+      }
+    });
+
+    const loginRequest = { scopes: msalConfig.scopes };
+    this.app.loginRedirect(loginRequest);
+  }
+
   logout() {
     this.app.logout();
   }
 
   getUser() {
     return this.app.getAccount();
+  }
+
+  reflesh() {
+    const accounts = this.app.getAccount();
+    if (accounts) {
+      store.commit("sigin", accounts);
+    } else {
+      store.commit("signout");
+    }
   }
 }
