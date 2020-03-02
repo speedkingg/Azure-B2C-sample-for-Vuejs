@@ -1,12 +1,9 @@
 <template>
   <div>
-    <v-card width="300">
-      <v-card-title>Azure B2C Login</v-card-title>
-      <v-card-actions class="py-5">
-        <v-btn @click="login" v-if="!user" class="mx-auto">login with Microsoft</v-btn>
-        <v-btn @click="logout" v-else class="mx-auto">logout</v-btn>
-      </v-card-actions>
-    </v-card>
+    <v-btn @click="login" v-if="!user">
+      <v-icon small left>mdi-windows</v-icon>login
+    </v-btn>
+    <v-btn @click="logout" v-else>logout</v-btn>
   </div>
 </template>
 
@@ -14,7 +11,7 @@
 import store from "@/store/index.js";
 
 export default {
-  name: "LoginFormPopup",
+  name: "LoginButtonPopup",
 
   data: () => ({ errorMessage: "" }),
   methods: {
