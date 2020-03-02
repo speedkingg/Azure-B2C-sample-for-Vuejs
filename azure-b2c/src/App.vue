@@ -1,19 +1,20 @@
 <template>
   <v-app>
     <div class="filter" />
+    <TheHeader />
     <v-content>
-      <v-container>
-        <router-view />
-      </v-container>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import TheHeader from "@/components/TheHeader.vue";
+
 export default {
   name: "App",
 
-  components: {},
+  components: { TheHeader },
 
   data: () => ({}),
   created() {

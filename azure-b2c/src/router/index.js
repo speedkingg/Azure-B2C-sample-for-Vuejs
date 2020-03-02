@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store/index.js";
 import LoginView from "@/views/LoginView.vue";
-import DashboadView from "@/views/DashboadView.vue";
+import DashboardView from "@/views/DashboardView.vue";
 import ContentsView from "@/views/ContentsView.vue";
 
 Vue.use(VueRouter);
@@ -11,7 +11,7 @@ const routes = [
   {
     path: "/",
     name: "dashboad",
-    component: DashboadView,
+    component: DashboardView,
     beforeEnter: (to, from, next) => {
       store.getters.isSignin ? next() : next("/login");
     }
