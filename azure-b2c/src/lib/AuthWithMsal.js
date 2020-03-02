@@ -1,5 +1,6 @@
 import * as Msal from "msal"; // https://pub.dev/documentation/msal_js/latest/msal_js/UserAgentApplication-class.html
 import store from "@/store/index.js";
+import router from "@/router/index.js";
 import msalConfig from "@/config/maslConfig.js";
 
 export default class AuthService {
@@ -11,7 +12,7 @@ export default class AuthService {
         validateAuthority: false
       },
       cache: {
-        cacheLocation: "localStorage",
+        cacheLocation: "sessionStorage",
         storeAuthStateInCookie: true
       }
     };
@@ -25,6 +26,7 @@ export default class AuthService {
       .then(result => {
         console.log("success", result);
         store.commit("sigin", result);
+        router.push("/");
       })
       .catch(error => {
         console.log("login error", error);

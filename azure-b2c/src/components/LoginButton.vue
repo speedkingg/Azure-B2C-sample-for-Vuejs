@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <v-btn @click="login" v-if="!user">
-      <v-icon small left>mdi-windows</v-icon>login
-      <v-icon small right>mdi-checkbox-multiple-blank-outline</v-icon>
-    </v-btn>
-    <v-btn @click="logout" v-else>logout</v-btn>
-  </div>
+  <v-btn @click="login" v-if="!user" color="primary" outlined>
+    <v-icon left>mdi-windows</v-icon>
+    <div>login</div>
+    <v-icon small right>mdi-checkbox-multiple-blank-outline</v-icon>
+  </v-btn>
 </template>
 
 <script>
@@ -18,9 +16,6 @@ export default {
   methods: {
     login() {
       this.$AuthService.loginPopup();
-    },
-    logout() {
-      this.$AuthService.logout();
     }
   },
   computed: {

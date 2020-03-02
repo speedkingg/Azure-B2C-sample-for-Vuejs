@@ -1,6 +1,7 @@
 const config = {
   clientId: "",
-  authority: ""
+  authority: "",
+  scopes: []
 };
 
 export default config;
