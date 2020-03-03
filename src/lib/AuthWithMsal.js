@@ -27,7 +27,11 @@ export default class AuthService {
       .then(result => {
         console.log("success", result);
         store.commit("SignIn", result);
-        router.push("/");
+        router.push(
+          "/",
+          () => {},
+          () => {}
+        );
       })
       .catch(error => {
         console.log("SignIn error", error);
