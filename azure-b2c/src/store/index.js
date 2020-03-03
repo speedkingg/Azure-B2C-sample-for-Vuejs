@@ -15,15 +15,12 @@ export default new Vuex.Store({
     },
     SignOut(state) {
       state.isSigin = false;
-      state.userId = "";
+      state.user = {};
     }
   },
   getters: {
     isSignin: state => {
       return state.isSigin;
-    },
-    userId: state => {
-      return state.userId;
     }
   },
   actions: {},
