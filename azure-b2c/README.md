@@ -1,29 +1,24 @@
-# vuetify
+# Azure-B2C-sample
+
+- `Azure Active Directory B2C` を利用したログインフォームサンプル。
+
+## 準備
+
+- `config/maslConfig.template.js`から`config/maslConfig.js`を作成し、`clientId`, `authority`を貼り付ける
 
 ## Project setup
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Run
+
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+### 参考
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/bs-latn-ba/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript)
+- [UserAgentApplication class](https://pub.dev/documentation/msal_js/latest/msal_js/UserAgentApplication-class.html)
