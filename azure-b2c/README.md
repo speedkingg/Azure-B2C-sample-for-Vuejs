@@ -1,6 +1,12 @@
-# Azure-B2C-sample
+# Azure-B2C-sample for Vuejs
 
-- `Azure Active Directory B2C` を利用したログインフォームサンプル。
+- `Azure Active Directory B2C`を利用した `vue.js` のログインフォームサンプル。
+
+## 技術要素
+
+- `vuex`: サインイン情報管理
+- `vue router`: ルーティング、ナビゲーションガード
+- `vuetify`: レイアウト用
 
 ## 準備
 
