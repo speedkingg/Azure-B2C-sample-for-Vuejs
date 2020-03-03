@@ -1,7 +1,7 @@
 import * as Msal from "msal"; // https://pub.dev/documentation/msal_js/latest/msal_js/UserAgentApplication-class.html
+import msalConfig from "@/config/maslConfig.js";
 import store from "@/store/index.js";
 import router from "@/router/index.js";
-import msalConfig from "@/config/maslConfig.js";
 
 export default class AuthService {
   constructor() {
@@ -18,25 +18,26 @@ export default class AuthService {
     };
     // instantiate MSAL
     this.app = new Msal.UserAgentApplication(this.msalConfig);
+    this.reflesh();
   }
 
-  loginPopup() {
+  SignInPopup() {
     this.app
       .loginPopup()
       .then(result => {
         console.log("success", result);
-        store.commit("sigin", result);
+        store.commit("SignIn", result);
         router.push("/");
       })
       .catch(error => {
-        console.log("login error", error);
+        console.log("SignIn error", error);
       });
   }
 
-  loginRedirect() {
+  SignInRedirect() {
     this.app.handleRedirectCallback((error, result) => {
       if (error) {
-        console.log("login error", error);
+        console.log("SignIn error", error);
       } else {
         console.log("success", result);
       }
@@ -46,20 +47,21 @@ export default class AuthService {
     this.app.loginRedirect(loginRequest);
   }
 
-  logout() {
+  SignOut() {
+    // sign out後、ページがリロードされる
     this.app.logout();
   }
 
-  getUser() {
+  getAccount() {
     return this.app.getAccount();
   }
 
   reflesh() {
     const accounts = this.app.getAccount();
     if (accounts) {
-      store.commit("sigin", accounts);
+      store.commit("SignIn", accounts);
     } else {
-      store.commit("signout");
+      store.commit("SignOut");
     }
   }
 }

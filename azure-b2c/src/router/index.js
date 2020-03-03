@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store/index.js";
-import LoginView from "@/views/LoginView.vue";
+import SignInView from "@/views/SignInView.vue";
 import DashboardView from "@/views/DashboardView.vue";
 import ContentsView from "@/views/ContentsView.vue";
 
@@ -13,7 +13,7 @@ const routes = [
     name: "dashboad",
     component: DashboardView,
     beforeEnter: (to, from, next) => {
-      store.getters.isSignin ? next() : next("/login");
+      store.getters.isSignin ? next() : next("/signin");
     }
   },
   {
@@ -21,14 +21,14 @@ const routes = [
     name: "contents",
     component: ContentsView,
     beforeEnter: (to, from, next) => {
-      store.getters.isSignin ? next() : next("/login");
+      store.getters.isSignin ? next() : next("/signin");
     }
   },
 
   {
-    path: "/login",
-    name: "login",
-    component: LoginView,
+    path: "/signin",
+    name: "signin",
+    component: SignInView,
     beforeEnter: (to, from, next) => {
       store.getters.isSignin ? next("/") : next();
     }

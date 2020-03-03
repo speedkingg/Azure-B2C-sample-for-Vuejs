@@ -16,10 +16,7 @@ export default {
 
   components: { TheHeader },
 
-  data: () => ({}),
-  created() {
-    this.$AuthService.reflesh();
-  }
+  data: () => ({})
 };
 </script>
 

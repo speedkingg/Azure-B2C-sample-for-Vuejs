@@ -8,7 +8,7 @@
       </v-btn>
     </template>
     <v-list min-width="100">
-      <v-list-item-title class="text-center clickable pa-3" @click="logout()">
+      <v-list-item-title class="text-center clickable pa-3" @click="SignOut()">
         <v-icon left>mdi-logout</v-icon>sign out
       </v-list-item-title>
     </v-list>
@@ -17,12 +17,12 @@
 
 <script>
 export default {
-  name: "LogoutButton",
+  name: "SignOutButton",
 
   data: () => ({}),
   methods: {
-    logout() {
-      this.$AuthService.logout();
+    SignOut() {
+      this.$AuthService.SignOut();
     }
   },
   computed: {}

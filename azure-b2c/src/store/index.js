@@ -9,11 +9,11 @@ export default new Vuex.Store({
     user: {}
   },
   mutations: {
-    sigin(state, user) {
+    SignIn(state, user) {
       state.isSigin = true;
       state.user = user;
     },
-    signout(state) {
+    SignOut(state) {
       state.isSigin = false;
       state.userId = "";
     }

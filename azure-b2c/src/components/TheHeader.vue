@@ -10,7 +10,7 @@
         <v-icon left>mdi-egg-easter</v-icon>Contents
       </v-btn>
 
-      <LogoutButton />
+      <SignOutButton />
     </v-toolbar-items>
   </v-app-bar>
 </template>
@@ -18,7 +18,7 @@
 <script>
 import store from "@/store/index.js";
 import router from "@/router/index.js";
-import LogoutButton from "@/components/LogoutButton";
+import SignOutButton from "@/components/SignOutButton";
 
 export default {
   name: "TheHeader",
@@ -26,7 +26,7 @@ export default {
     return {};
   },
   props: {},
-  components: { LogoutButton },
+  components: { SignOutButton },
   created() {},
   methods: {
     toDashboard() {

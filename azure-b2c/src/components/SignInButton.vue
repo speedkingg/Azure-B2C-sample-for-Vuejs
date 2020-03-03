@@ -1,7 +1,6 @@
 <template>
-  <v-btn @click="login" v-if="!user" color="primary" outlined>
-    <v-icon left>mdi-windows</v-icon>
-    <div>login</div>
+  <v-btn @click="SignIn" v-if="!isSignin" color="primary" class="text-capitalize" outlined>
+    <v-icon left>mdi-windows</v-icon>Sign In
     <v-icon small right>mdi-checkbox-multiple-blank-outline</v-icon>
   </v-btn>
 </template>
@@ -10,16 +9,16 @@
 import store from "@/store/index.js";
 
 export default {
-  name: "LoginButton",
+  name: "SignInButton",
 
   data: () => ({ errorMessage: "" }),
   methods: {
-    login() {
-      this.$AuthService.loginPopup();
+    SignIn() {
+      this.$AuthService.SignInPopup();
     }
   },
   computed: {
-    user() {
+    isSignin() {
       return store.getters.isSignin;
     }
   }
