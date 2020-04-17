@@ -1,6 +1,7 @@
 # Azure-B2C-sample for Vuejs
 
 - `Azure Active Directory B2C`を利用した `vue.js` のログインフォームサンプル。
+![image](https://user-images.githubusercontent.com/26742929/79568385-b6774e80-80f0-11ea-884d-29365325e72b.png)
 
 ## 技術要素
 
