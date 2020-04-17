@@ -9,22 +9,21 @@ export default class AuthService {
       auth: {
         clientId: msalConfig.clientId,
         authority: msalConfig.authority,
-        validateAuthority: false
+        validateAuthority: false,
       },
       cache: {
         cacheLocation: "sessionStorage",
-        storeAuthStateInCookie: true
-      }
+        storeAuthStateInCookie: true,
+      },
     };
     // instantiate MSAL
     this.app = new Msal.UserAgentApplication(this.msalConfig);
-    this.reflesh();
   }
 
   SignInPopup() {
     this.app
       .loginPopup()
-      .then(result => {
+      .then((result) => {
         console.log("success", result);
         store.commit("SignIn", result);
         router.push(
@@ -33,7 +32,7 @@ export default class AuthService {
           () => {}
         );
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("SignIn error", error);
       });
   }
@@ -53,19 +52,11 @@ export default class AuthService {
 
   SignOut() {
     // sign out後、ページがリロードされる
+    store.commit("SignOut");
     this.app.logout();
   }
 
   getAccount() {
     return this.app.getAccount();
-  }
-
-  reflesh() {
-    const accounts = this.app.getAccount();
-    if (accounts) {
-      store.commit("SignIn", accounts);
-    } else {
-      store.commit("SignOut");
-    }
   }
 }

@@ -14,7 +14,7 @@ const routes = [
     component: DashboardView,
     beforeEnter: (to, from, next) => {
       store.getters.isSignin ? next() : next("/signin");
-    }
+    },
   },
   {
     path: "/contents",
@@ -22,7 +22,7 @@ const routes = [
     component: ContentsView,
     beforeEnter: (to, from, next) => {
       store.getters.isSignin ? next() : next("/signin");
-    }
+    },
   },
 
   {
@@ -31,12 +31,12 @@ const routes = [
     component: SignInView,
     beforeEnter: (to, from, next) => {
       store.getters.isSignin ? next("/") : next();
-    }
-  }
+    },
+  },
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 export default router;
