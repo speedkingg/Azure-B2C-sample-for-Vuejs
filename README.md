@@ -16,13 +16,13 @@
 ## Project setup
 
 ```
-yarn install
+npm install
 ```
 
 ### Run
 
 ```
-yarn run serve
+npm run serve
 ```
 
 ## 参考
